@@ -64,8 +64,8 @@
         }
     },
     "variables": {
-        "repoURL": "https://github.com/jennifermarsman/cognitive-search-qna-solution",
-        "repoDirectory": "jennifermarsman/cognitive-search-qna-solution/",
+        "repoURL": "https://github.com/Azure-Samples/search-qna-maker-accelerator",
+        "repoDirectory": "Azure-Samples/search-qna-maker-accelerator/",
         "branch": "main",
         "reactProject": "SearchUI",
         "functionProject": "CustomSkillForDataIngestion\\QnAIntegrationCustomSkill\\QnAIntegrationCustomSkill.csproj",
@@ -355,21 +355,19 @@
                     },
                     "reactProject": {
                         "value": "[variables('reactProject')]"
-                    },
-                    "repoURL": {
-                        "value": "[variables('repoURL')]"
-                    },
-                    "branch": {
-                        "value": "[variables('branch')]"
                     }
                 }
             }
         }
     ],
     "outputs": {
-        "HTTP Trigger": {
+        "HTTP Trigger to initialize accelerator": {
             "type": "string",
             "value": "[reference('initaccelerator').outputs.URL.value]"
+        },
+        "UI": {
+            "type": "string",
+            "value": "[reference('initaccelerator').outputs.UI.value]"
         }
     }
 }

@@ -128,7 +128,10 @@ namespace QnAIntegrationCustomSkill
                 output.answers = new QnAResult();
                 output.answers.answer = qnaResponse.Answers.First();
                 log.LogInformation("source: " + output.answers.answer.Source);
-                output.answers.document = await GetDocument(output.answers.answer.Source, output.results);
+                if (output.answers.answer.Source != null)
+                {
+                    output.answers.document = await GetDocument(output.answers.answer.Source, output.results);
+                }
             }
 
             return new OkObjectResult(output);
